@@ -1,0 +1,22 @@
+{
+  "name": "cypressauto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run": "cypress run"
+  },
+  "author": "hadi",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.3.1",
+    "cypress-file-upload": "^5.0.8",
+    "cypress-upload-file": "^1.0.6"
+  },
+  "dependencies": {
+    "axios": "^1.5.0",
+    "cypress-wait-until": "^2.0.1",
+    "flatted": "^3.2.9"
+  }
+}
