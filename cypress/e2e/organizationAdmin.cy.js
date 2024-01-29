@@ -45,9 +45,6 @@ describe('Organizations Tab', () => {
             .click({ force: true });
 
 
-            //comment
-        //aaaa
-
     }
     //function sirf aik bar chalra
     AddTime(3);
