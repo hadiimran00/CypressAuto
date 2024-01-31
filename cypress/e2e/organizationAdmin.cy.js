@@ -1,7 +1,7 @@
 describe('Organizations Tab', () => {
 
-    it('Logging In', () => {
-                         cy.session('customer sessions', () => {
+    before('Logging In', () => {
+            cy.session('customer sessions', () => {
             cy.visit('/');
             cy.fixture('login').then((loginData) => {
                 cy.get('#email-address-input').type(loginData.email);
@@ -44,6 +44,7 @@ describe('Organizations Tab', () => {
             .should('be.visible')
             .click({ force: true });
 
+            //vscode
 
     }
     //function sirf aik bar chalra

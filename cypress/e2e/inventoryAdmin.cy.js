@@ -1,31 +1,32 @@
 describe('Parts Tab', () => {
-let cookieValue;
+
   beforeEach('Logging In', () => {
 
-    cy.fixture('login.json').then((loginData) => {
+    cy.fixture('login').then((loginData) => {
       cy.session('inventory session', () => {
         cy.visit('/');
-        cy.get('[type="text"]').type(loginData.email);
-        cy.get('[type="password"]').type(loginData.password);
+        cy.get('#email-address-input').type(loginData.email);
+        cy.get('#password-input').type(loginData.password);
         cy.get('#login-button').click();
         cy.wait(10000);
-        cy.getCookie('your-cookie-name').then((cookie) => {
-          if (cookie) {
-             const cookieValue = cookie.value;
-            cy.clearCookie('your-cookie-name');
-            cy.setCookie('your-cookie-name', cookieValue);
-            console.log(cookieValue,'aaaaa')
-            cy.log(cookieValue)
-          } 
-        });
-      }, {
-        cacheAcrossSpecs: false
-      });
+      })
+      //   cy.getCookie('your-cookie-name').then((cookie) => {
+      //     if (cookie) {
+      //        const cookieValue = cookie.value;
+      //       cy.clearCookie('your-cookie-name');
+      //       cy.setCookie('your-cookie-name', cookieValue);
+      //       console.log(cookieValue,'aaaaa')
+      //       cy.log(cookieValue)
+      //     } 
+      //   });
+      // }, {
+      //   cacheAcrossSpecs: false
+      // });
     });
   
     cy.visit('/');
     // cy.get('.ant-btn').click();
-    cy.get('a.ant-menu-item-icon[href="/parts"]', { timeout: 100000 }).click();
+    cy.get('a.ant-menu-item-icon[href="/inventory"]', { timeout: 100000 }).click();
    
   });
   
@@ -33,7 +34,7 @@ let cookieValue;
 
   it('Adding Parts', () => {
 
-    cy.log(cookieValue)
+  
 
     // cy.intercept({
     //   method: 'GET',
@@ -50,7 +51,7 @@ let cookieValue;
 
     const fileName = "parts.jpg";
 
-    cy.get('[type="button"]').contains('Add Inventory').click();
+    cy.get('[type="button"]').contains('Add Parts').click();
 
     cy.get('[class="ant-select-selection-item"]').eq(0).type('Test');
     cy.get('[class="ant-select-item-option-content"]',{timeout: 50000}).contains('Test Brand').click();
@@ -107,7 +108,7 @@ let cookieValue;
 
     cy.get('[data-icon="search"]').eq(2).click();
     cy.get('.ant-input')
-    .eq(1)
+    .eq(0)
     .type('Test');
 
     cy.get('[class="ant-space-item"]').contains('Search').click();

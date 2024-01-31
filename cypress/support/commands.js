@@ -17,14 +17,18 @@ Cypress.Commands.add('LoginAndNav',(email,password,menuitem) => {
     cy.get('.custom-menu', { timeout: 40000 }).contains(menuitem).click();
 })
 
-Cypress.Commands.add('login', (email, password) => {
-    cy.session('my-session', () => {
+Cypress.Commands.add('login', () => {
+  cy.fixture('login').then((loginData) => {
+    cy.session('Session', () => {
       cy.visit('/');
-      cy.get('[type="text"]').type(email);
-      cy.get('[type="password"]').type(password);
+      cy.get('#email-address-input').type(loginData.email);
+      cy.get('#password-input').type(loginData.password);
       cy.get('#login-button').click();
+      cy.wait(5000);
     });
-})
+  });
+});
+
 
 
 // describe('Login',()=>{

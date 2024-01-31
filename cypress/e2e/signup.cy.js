@@ -11,7 +11,7 @@ describe('SignUp Page', ()=>{
         cy.get('[name="lastName"]').type('Last Name', {force : true })
         cy.get('[name="email"]').type(`${randomCode}@email.com`);
         cy.log(`${randomCode}@email.com`)
-        console.log(`${randomCode}@email.com`)
+        console.log(`${randomCode}@email.com`) 
         cy.get('[type="search"]').eq(0).type('Pakistan');
         cy.get('[class="rc-virtual-list"]', {timeout: 10000}).eq(0).click();
         cy.get('[type="search"]').eq(1).type('Karachi');
